@@ -20,22 +20,26 @@
             <!-- Link to view high scores -->
             <a class="btn btn-secondary" id="highscores" href="highscores.html">High Scores</a>
             <!-- Timer for quiz -->
-            <div class="btn btn-secondary" id="timer">Timer</div>
+            <div class="btn btn-secondary" id="timer">Time Remaining</div>
         </nav>
     </Header>
-    <main>
+    <br>
         <!-- Quiz Starting Page -->
+    <section>
         <div class="homepage">
             <h1>Coding Quiz Challenge: JavaScript Edition</h1>
             <p>Answer the following code-related questions within 60 seconds. If you answer incorrectly 10 seconds will
                 be deducted off the clock! Try your best and good luck!</p>
             <button class="btn btn-secondary" id="start">Start Quiz!</button>
         </div>
+    </section>
+    <br>
+    <Section id="QA">
         <!-- Questions after Start -->
-        <div id="questions"></div>
+        <div class="questions"></div>
         <!-- Answer Options -->
-        <div id="answer"></div>
-    </main>
+        <div class="answers"></div>
+    </Section>
     <!-- Save score to the Local Storage -->
     <form>
         <div>

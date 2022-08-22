@@ -35,68 +35,98 @@ var questions = [
     }
 ];
 
-var i = 0
+var i = 0;
+let score = 0;
+let timeLeft = 90;
+let globalIndex = 0;
+let highScoreIndex = 0;
+
 
 // #Start Quiz and Remove Homepage Screen after start 
 document.querySelector('#start').onclick = function () {
     document.querySelector('.homepage').style.display = "none";
     showQuestions();
-    setInterval (()=>{
-        if(secondsLeft > 0){
-            secondsLeft--;
-            document.querySelector("#timer").textContent-secondsLeft
-        }
-    }, 1000)
-} 
-// Display questions on the screen after #starting Quiz 
-function showQuestions() {
-    if (i < questions.length) {
+    document.addEventListener('#start', () => {
+        timeInterval.textContent = time;
+    })
+    // Start Timer
+    var timerEl = document.getElementById("timer");
+    timerEl.textContent = timeLeft;
+    function timer() {
+        var timeInterval = setInterval(function () {
+            if (timeLeft > 1) {
+                timerEl.textContent = timeLeft + ' seconds remaining';
+                timeLeft--;
+            } else if (timeLeft === 1) {
+                timerEl.textContent = timeLeft + ' second remaining.';
+                timeLeft--;
+            } else {
+                timerEl.textContent = '';
+                clearInterval(timeInterval);
+            }
+        }, 1000);
+    }
+    timer();
 
-        document.querySelector('#questions').innerHTML =
-            `<h3>${questions[i].title}</h3>
+    // Display questions on the screen after #starting Quiz 
+    function showQuestions() {
+        if (i < questions.length) {
+
+            document.querySelector('.questions').innerHTML =
+                `<h3>${questions[i].title}</h3>
           <button class="btn btn-secondary">${questions[i].choices[0]}</button>
           <button class="btn btn-secondary">${questions[i].choices[1]}</button>
           <button class="btn btn-secondary">${questions[i].choices[2]}</button>
           <button class="btn btn-secondary">${questions[i].choices[3]}</button>`
-    } 
+        }
 
-}
-
-// Funtion to display when questions are RIGHT or WRONG 
-document.querySelector('#questions').onclick = function (e) {
-    e.preventDefault()
-    var answer = e.target.innerText;
-
-    if (answer === questions[i].answer) {
-        document.querySelector('#answer').innerHTML = "Correct!"
-    } else {
-        document.querySelector('#answer').innerHTML = "Wrong!"
     }
-    // How long it displays whether the answer is wright or wrong
-    setTimeout(function () {
-        document.querySelector('#answer').innerHTML = ''
-        i++;
-        showQuestions()
 
-    }, 2000)
-};
+    // Funtion to display when questions are RIGHT or WRONG 
+    document.querySelector('.questions').onclick = function (e) {
+        e.preventDefault()
+        var answer = e.target.innerHTML;
+        if (answer === questions[i].answer) {
+            document.querySelector('.answers').innerHTML = "Correct!"
+        } else {
+            document.querySelector('.answers').innerText = "Wrong!"
+        }
+        // How long it displays whether the answer is wright or wrong
+        setTimeout(function () {
+            document.querySelector('.answers').innerHTML = ''
+            i++;
+            showQuestions()
+        }, 2000)
 
-// Displaying the time clock on the page 
-// var timeInterval = setInterval(function () {
-//     if (secondsLeft > 1) {
-//         secondsLeft--;
-//         document.querySelector('#timer').textContent - secondsLeft
-//     } else if (secondsLeft === 1) {
-//         document.querySelector('#timer').textContent - secondsLeft
-//         secondsLeft--;
-//     } else {
-//         document.querySelector('#timer').textContent - secondsLeft
-//         clearInterval(timeInterval);
-//         displayMessage();
-//     }
-// }, 60000);
-// }
+    };
 
-// Subtracting time from your score when you answer incorrectly
+    // Displaying the time clock on the page 
+    // var timeInterval = setInterval(function () {
+    //     if (secondsLeft > 1) {
+    //         secondsLeft--;
+    //         document.querySelector('#timer').textContent - secondsLeft
+    //     } else if (secondsLeft === 1) {
+    //         document.querySelector('#timer').textContent - secondsLeft
+    //         secondsLeft--;
+    //     } else {
+    //         document.querySelector('#timer').textContent - secondsLeft
+    //         clearInterval(timeInterval);
+    //         displayMessage();
+    //     }
+    // }, 60000);
+    // }
+    // timeInterval = setInterval (function (){
+    // document.querySelector('#timer').timer = time;
+    // if (time === 0) {
+    //     clearInterval(timeInterval)
+    // }
+    //     document.getElementById('#timer') = 90 - time;
+    //     time-= 1;
 
- // how to display and hold info in local storage - (console log answers?)
+
+
+
+    // Subtracting time from your score when you answer incorrectly
+
+    // how to display and hold info in local storage - (console log answers?
+}

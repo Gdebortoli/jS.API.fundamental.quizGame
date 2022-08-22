@@ -17,8 +17,8 @@ h1 {
 }
 
 /* Questions */
-#questions {
-    padding: 200px 100px 100px;
+div.questions {
+    margin: 200px 0;
     align-content: center;
     text-align: center;
 }
@@ -27,14 +27,14 @@ h1 {
     border: 10px transparent;
 }
 /* Right or Wrong Responses */
-div#answer {
+div.answers {
     text-align: center;
     font-size: 25px;
     font-weight: bolder;
     border: 10px transparent;
 }
 /* Timer */
-div#timer {
+#timer {
     margin: 25px;
     position: absolute;  
     right: 0;
