@@ -25,7 +25,7 @@ This is what the separate high score page looks like
 
 ![](./assets/####)
 
-### Link to deplpyed application 
+### Link to deployed application 
 
 <!-- Link -->
 

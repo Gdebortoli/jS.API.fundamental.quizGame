@@ -1,0 +1,66 @@
+/* Quiz Home Page */
+html body {
+    background-image: url("https://media.istockphoto.com/photos/question-marks-3d-picture-id589553688?k=20&m=589553688&s=612x612&w=0&h=2n-r0vvTJtLQnUTA5dORbZnh2f81j0WnttjekJDuEkk=");
+    vertical-align: middle;
+}
+
+.homepage {
+    padding: 200px;
+    align-content: center;
+    text-align: center;
+    font-size: x-large;
+}
+
+h1 {
+    margin-top: 100px;
+    font-size: 35pt;
+}
+
+/* Questions */
+#questions {
+    padding: 200px 100px 100px;
+    align-content: center;
+    text-align: center;
+}
+/* Answer Buttons */
+.btn {
+    border: 10px transparent;
+}
+/* Right or Wrong Responses */
+div#answer {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bolder;
+    border: 10px transparent;
+}
+/* Timer */
+div#timer {
+    margin: 25px;
+    position: absolute;  
+    right: 0;
+}
+/* High Scores on main page*/
+a#highscores {
+    margin: 25px;
+    position: absolute;  
+    left: 0;
+}
+
+/* High Score Page */
+h1#quizhs {
+    text-align: center;
+    font-weight: normal;
+    margin-top: 50px;
+}
+
+a#homepage {
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    margin: 0 auto;
+}
+
+/* Page Settings */
+* {
+    font-family: 'Courier New', Courier, monospace;
+}
