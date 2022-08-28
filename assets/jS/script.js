@@ -32,6 +32,12 @@ var questions = [
             "A function can be nested inside of another function",
         choices: ["Yes", "No", "Sometimes", "I dont know"],
         answer: "Yes"
+    },
+    {
+        title:
+            "Which of the following keywords is used to define a variable in JavaScript?",
+        choices: ["var", "let", "both var and let", "none of the above"],
+        answer: "both var and let"
     }
 ];
 
@@ -47,9 +53,9 @@ document.querySelector('#start').onclick = function () {
     document.querySelector('.homepage').style.display = "none";
     showQuestions();
     document.addEventListener('#start', () => {
-        timeInterval.textContent = time;
+        timeInterval.textContent = timer;
     })
-    // Start Timer
+    // Start and Display Timer
     var timerEl = document.getElementById("timer");
     timerEl.textContent = timeLeft;
     function timer() {
@@ -61,72 +67,72 @@ document.querySelector('#start').onclick = function () {
                 timerEl.textContent = timeLeft + ' second remaining.';
                 timeLeft--;
             } else {
-                timerEl.textContent = '';
+                timerEl.textContent = 'GAME OVER!!';
                 clearInterval(timeInterval);
+                showScore()
             }
         }, 1000);
     }
     timer();
-
     // Display questions on the screen after #starting Quiz 
+
     function showQuestions() {
         if (i < questions.length) {
-
-            document.querySelector('.questions').innerHTML =
-                `<h3>${questions[i].title}</h3>
-          <button class="btn btn-secondary">${questions[i].choices[0]}</button>
-          <button class="btn btn-secondary">${questions[i].choices[1]}</button>
-          <button class="btn btn-secondary">${questions[i].choices[2]}</button>
-          <button class="btn btn-secondary">${questions[i].choices[3]}</button>`
+            document.querySelector('#question-title').innerHTML =
+                `<h3>${questions[i].title}</h3>`
+            document.querySelector("#question-button").innerHTML=
+          `<button class="answerbtn btn btn-secondary btn-lg">${questions[i].choices[0]}</button>
+          <button class="answerbtn btn btn-secondary btn-lg">${questions[i].choices[1]}</button>
+          <button class="answerbtn btn btn-secondary btn-lg">${questions[i].choices[2]}</button>
+          <button class="answerbtn btn btn-secondary btn-lg">${questions[i].choices[3]}</button>`
+        } else{
+            showScore()
         }
 
     }
-
-    // Funtion to display when questions are RIGHT or WRONG 
-    document.querySelector('.questions').onclick = function (e) {
-        e.preventDefault()
+    document.querySelector('#question-button').onclick = function (e) {
+        e.preventDefault();
+       
         var answer = e.target.innerHTML;
+        console.log(answer)
         if (answer === questions[i].answer) {
-            document.querySelector('.answers').innerHTML = "Correct!"
+            document.querySelector('#answers').innerHTML= "Correct!"
+            score+=10
         } else {
-            document.querySelector('.answers').innerText = "Wrong!"
+            document.querySelector('#answers').innerHTML = "Wrong!"
+            timeLeft-=10
         }
         // How long it displays whether the answer is wright or wrong
         setTimeout(function () {
-            document.querySelector('.answers').innerHTML = ''
+            document.querySelector('#answers').innerHTML = ''
             i++;
             showQuestions()
         }, 2000)
 
-    };
+    // Subtracting time from your clock when you answer incorrectly
 
-    // Displaying the time clock on the page 
-    // var timeInterval = setInterval(function () {
-    //     if (secondsLeft > 1) {
-    //         secondsLeft--;
-    //         document.querySelector('#timer').textContent - secondsLeft
-    //     } else if (secondsLeft === 1) {
-    //         document.querySelector('#timer').textContent - secondsLeft
-    //         secondsLeft--;
-    //     } else {
-    //         document.querySelector('#timer').textContent - secondsLeft
-    //         clearInterval(timeInterval);
-    //         displayMessage();
-    //     }
-    // }, 60000);
-    // }
-    // timeInterval = setInterval (function (){
-    // document.querySelector('#timer').timer = time;
-    // if (time === 0) {
-    //     clearInterval(timeInterval)
-    // }
-    //     document.getElementById('#timer') = 90 - time;
-    //     time-= 1;
+    // Keeping track of points in the Local storage
+
+    // Logging your high score to show up in the high score page
+    }}
 
 
+    function showScore(){
+        document.querySelector('#QA').style.display="none";
+        document.querySelector('#form').style.display='block';
+        document.querySelector('#finalbtn').onclick = function(e){
+            e.preventDefault()
+            var initials = document.querySelector('#initials').value;
+            console.log(initials);
+            localStorage.setItem('score', JSON.stringify(score))
+            localStorage.setItem('initials', JSON.stringify(initials))
+
+        }
+
+    }
 
 
-    // Subtracting time from your score when you answer incorrectly
-
-    // how to display and hold info in local storage - (console log answers?
-}
+              // <button class="answerbtn btn-secondary btn-lg" onclick="checkAnswer('${questions[i].choices[0]}')">${questions[i].choices[0]}</button>
+                // <button class="answerbtn btn-secondary btn-lg" onclick="checkAnswer('${questions[i].choices[1]}')">${questions[i].choices[1]}</button>
+                // <button class="answerbtn btn-secondary btn-lg" onclick="checkAnswer('${questions[i].choices[2]}')">${questions[i].choices[2]}</button>
+                // <button class="answerbtn btn-secondary btn-lg" onclick="checkAnswer('${questions[i].choices[3]}')">${questions[i].choices[3]}</button>

@@ -18,9 +18,9 @@
     <Header>
         <nav>
             <!-- Link to view high scores -->
-            <a class="btn btn-secondary" id="highscores" href="highscores.html">High Scores</a>
+            <a class="btn btn-secondary btn-lg" id="highscores" href="highscores.html">High Scores</a>
             <!-- Timer for quiz -->
-            <div class="btn btn-secondary" id="timer">Time Remaining</div>
+            <div class="btn btn-secondary btn-lg" id="timer">Time Remaining</div>
         </nav>
     </Header>
     <br>
@@ -28,22 +28,25 @@
     <section>
         <div class="homepage">
             <h1>Coding Quiz Challenge: JavaScript Edition</h1>
-            <p>Answer the following code-related questions within 60 seconds. If you answer incorrectly 10 seconds will
+            <p>Answer the following code-related questions within 60 seconds. If you answer incorrectly, 10 seconds will
                 be deducted off the clock! Try your best and good luck!</p>
-            <button class="btn btn-secondary" id="start">Start Quiz!</button>
+            <button class="btn btn-secondary btn-lg" id="start">Start Quiz!</button>
         </div>
     </section>
     <br>
     <Section id="QA">
         <!-- Questions after Start -->
-        <div class="questions"></div>
+        <div id="question-title" class="questions"></div>
+        <div id="question-button" class="questions"></div>
         <!-- Answer Options -->
-        <div class="answers"></div>
+        <div id="answers" class="answers"></div>
     </Section>
     <!-- Save score to the Local Storage -->
-    <form>
+    <form id="form" style="display:none">
         <div>
-
+            <label>Put your initials below</label>
+            <input type="text" id="initials" placeholder="your initials"/>
+            <button id="finalbtn">submit</button>
         </div>
     </form>
 

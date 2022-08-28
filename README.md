@@ -1,6 +1,6 @@
 # Create a Timed Quiz to Test Boot Camp Student's javaScript Knowledge Using Web API's
 
-### Creating your own starter code, indivudually implement the following USER story: 
+## Creating your own starter code, indivudually implement the following USER story: 
 
 * AS A coding boot camp student I WANT to take a timed quiz on JavaScript fundamentals that stores high scores SO THAT I can gauge my progress compared to my peers
 
