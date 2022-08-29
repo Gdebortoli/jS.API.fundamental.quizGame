@@ -18,7 +18,7 @@ h1 {
 
 /* Questions */
 div.questions {
-    margin: 200px 0;
+    margin: 125px 0;
     align-content: center;
     text-align: center;
     font-size:30pt;
@@ -38,7 +38,7 @@ div.answers {
 /* Timer */
 #timer {
     margin: 25px;
-    position: absolute;  
+    position: fixed;  
     right: 0;
 }
 /* High Scores on main page*/
@@ -47,7 +47,12 @@ a#highscores {
     position: absolute;  
     left: 0;
 }
-
+#form {
+    align-items: center;
+    text-align: center;
+    font-size: 28px;
+    padding-top: 300px;
+}
 /* High Score Page */
 h1#quizhs {
     text-align: center;

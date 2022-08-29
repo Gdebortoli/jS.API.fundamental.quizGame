@@ -97,10 +97,11 @@ document.querySelector('#start').onclick = function () {
         console.log(answer)
         if (answer === questions[i].answer) {
             document.querySelector('#answers').innerHTML= "Correct!"
-            score+=10
+            score+=10;
         } else {
             document.querySelector('#answers').innerHTML = "Wrong!"
-            timeLeft-=10
+            timeLeft-=10;
+           n 
         }
         // How long it displays whether the answer is wright or wrong
         setTimeout(function () {
