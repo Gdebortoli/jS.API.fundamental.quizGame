@@ -80,60 +80,50 @@ document.querySelector('#start').onclick = function () {
         if (i < questions.length) {
             document.querySelector('#question-title').innerHTML =
                 `<h3>${questions[i].title}</h3>`
-            document.querySelector("#question-button").innerHTML=
-          `<button class="answerbtn btn btn-secondary btn-lg">${questions[i].choices[0]}</button>
+            document.querySelector("#question-button").innerHTML =
+                `<button class="answerbtn btn btn-secondary btn-lg">${questions[i].choices[0]}</button>
           <button class="answerbtn btn btn-secondary btn-lg">${questions[i].choices[1]}</button>
           <button class="answerbtn btn btn-secondary btn-lg">${questions[i].choices[2]}</button>
           <button class="answerbtn btn btn-secondary btn-lg">${questions[i].choices[3]}</button>`
-        } else{
+        } else {
             showScore()
         }
 
     }
     document.querySelector('#question-button').onclick = function (e) {
         e.preventDefault();
-       
+
         var answer = e.target.innerHTML;
         console.log(answer)
         if (answer === questions[i].answer) {
-            document.querySelector('#answers').innerHTML= "Correct!"
-            score+=10;
+            document.querySelector('#answers').innerHTML = "Correct!"
+            score += 10;
         } else {
             document.querySelector('#answers').innerHTML = "Wrong!"
-            timeLeft-=10;
-           n 
-        }
+            // Subtracting time from your clock when you answer incorrectly
+            timeLeft -= 10;
+        };
         // How long it displays whether the answer is wright or wrong
         setTimeout(function () {
             document.querySelector('#answers').innerHTML = ''
             i++;
-            showQuestions()
+            showQuestions();
         }, 2000)
-
-    // Subtracting time from your clock when you answer incorrectly
-
-    // Keeping track of points in the Local storage
-
-    // Logging your high score to show up in the high score page
-    }}
-
-
-    function showScore(){
-        document.querySelector('#QA').style.display="none";
-        document.querySelector('#form').style.display='block';
-        document.querySelector('#finalbtn').onclick = function(e){
-            e.preventDefault()
-            var initials = document.querySelector('#initials').value;
-            console.log(initials);
-            localStorage.setItem('score', JSON.stringify(score))
-            localStorage.setItem('initials', JSON.stringify(initials))
-
-        }
+        // Keeping track of points in the Local storage
+        console.log(score);
+    }
+}
+// Logging your high score to show up in the high score page
+function showScore() {
+    document.querySelector('#QA').style.display = "none";
+    document.querySelector('#form').style.display = 'block';
+    document.querySelector('#finalbtn').onclick = function (e) {
+        e.preventDefault()
+        var initials = document.querySelector('#initials').value;
+        console.log(initials);
+        localStorage.setItem('score', JSON.stringify(score))
+        localStorage.setItem('initials', JSON.stringify(initials))
 
     }
 
-
-              // <button class="answerbtn btn-secondary btn-lg" onclick="checkAnswer('${questions[i].choices[0]}')">${questions[i].choices[0]}</button>
-                // <button class="answerbtn btn-secondary btn-lg" onclick="checkAnswer('${questions[i].choices[1]}')">${questions[i].choices[1]}</button>
-                // <button class="answerbtn btn-secondary btn-lg" onclick="checkAnswer('${questions[i].choices[2]}')">${questions[i].choices[2]}</button>
-                // <button class="answerbtn btn-secondary btn-lg" onclick="checkAnswer('${questions[i].choices[3]}')">${questions[i].choices[3]}</button>
+}

@@ -44,7 +44,7 @@ div.answers {
 /* High Scores on main page*/
 a#highscores {
     margin: 25px;
-    position: absolute;  
+    position: fixed;  
     left: 0;
 }
 #form {
