@@ -32,7 +32,7 @@ div.questions {
 div.answers {
     text-align: center;
     font-size: 25pt;
-    font-weight: bolder;
+    font-weight: bold;
     border: 10px transparent;
 }
 /* Timer */

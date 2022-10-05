@@ -46,6 +46,7 @@ let score = 0;
 let timeLeft = 90;
 let globalIndex = 0;
 let highScoreIndex = 0;
+const entriesFromLocalStorage = JSON.parse(localStorage.getItem('initials' + 'score'));
 
 
 // #Start Quiz and Remove Homepage Screen after start 
@@ -101,9 +102,9 @@ document.querySelector('#start').onclick = function () {
         } else {
             document.querySelector('#answers').innerHTML = "Wrong!"
             // Subtracting time from your clock when you answer incorrectly
-            timeLeft -= 10;
+            timeLeft -= 15;
         };
-        // How long it displays whether the answer is wright or wrong
+        // How long it displays whether the answer is right or wrong
         setTimeout(function () {
             document.querySelector('#answers').innerHTML = ''
             i++;
@@ -120,10 +121,8 @@ function showScore() {
     document.querySelector('#finalbtn').onclick = function (e) {
         e.preventDefault()
         var initials = document.querySelector('#initials').value;
-        console.log(initials);
         localStorage.setItem('score', JSON.stringify(score))
         localStorage.setItem('initials', JSON.stringify(initials))
-
     }
-
-}
+    
+};

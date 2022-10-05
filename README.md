@@ -18,15 +18,21 @@ GIVEN I am taking a code quiz
 ### Screenshot 
 
 This is the homepage of the quiz game
-<!-- Make sure to resize the pictures so they fit appropriately  -->
-![](./assets/####)
+
+![Quiz Homepage](./assets/images/screenshots/quizgame.png)
 
 This is what the separate high score page looks like 
 
-![](./assets/####)
+![Quiz High Scores Page](./assets/images/screenshots/quizgame.hs.png)
+
+### Built Using
+* Bootstrap 
+* JavaScript
+* CSS 
+* HTML
 
 ### Link to deployed application 
 
-<!-- Link -->
+https://gdebortoli.github.io/jS.API.fundamental.quizGame/ 
 
-This site was build using [Github Pages]()
+This site was build using [Github Pages](https://gdebortoli.github.io/jS.API.fundamental.quizGame/)
