@@ -115,14 +115,20 @@ document.querySelector('#start').onclick = function () {
     }
 }
 // Logging your high score to show up in the high score page
+
+//const localStorageData =[]
+
 function showScore() {
     document.querySelector('#QA').style.display = "none";
     document.querySelector('#form').style.display = 'block';
     document.querySelector('#finalbtn').onclick = function (e) {
         e.preventDefault()
         var initials = document.querySelector('#initials').value;
-        localStorage.setItem('score', JSON.stringify(score))
-        localStorage.setItem('initials', JSON.stringify(initials))
+        localStorageData = JSON.parse(localStorage.getItem("data")) || []
+        let newData = {score: score, initials: initials};
+        localStorageData.push(newData)
+        localStorage.setItem('data', JSON.stringify(localStorageData))
+        
     }
 
     

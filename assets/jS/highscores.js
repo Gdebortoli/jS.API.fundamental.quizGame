@@ -1,10 +1,18 @@
 
-const initials = JSON.parse(localStorage.getItem("initials"))
-const highScore = JSON.parse(localStorage.getItem("score"))
+const highScoreData= JSON.parse(localStorage.getItem("data"))
 
-document.getElementById("score").innerHTML=
-`
-<h2>High Score</h2>
-<h3>Initials: ${initials}</h3>
-<h3>Score: ${highScore}</h3>
-`
+
+
+highScoreData.forEach( datum =>{
+
+
+    document.getElementById("score").innerHTML +=
+    `
+    <h3>Initials: ${datum.initials}</h3>
+    <h3>Score: ${datum.score}</h3>
+    <br>
+    `
+}
+
+
+)
