@@ -124,5 +124,6 @@ function showScore() {
         localStorage.setItem('score', JSON.stringify(score))
         localStorage.setItem('initials', JSON.stringify(initials))
     }
+
     
 };
