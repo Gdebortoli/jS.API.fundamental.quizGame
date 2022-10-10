@@ -71,3 +71,9 @@ a#homepage {
 * {
     font-family: 'Courier New', Courier, monospace;
 }
+
+/* High Scores on High Score Page */
+h3 {
+    text-align: center;
+}
+

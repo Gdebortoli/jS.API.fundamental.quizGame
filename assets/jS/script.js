@@ -6,15 +6,14 @@ var questions = [
         answer: "alerts"
     },
     {
-        title:
-            "Which of the following is and example of CamelCase?",
-        choices: ["camelcase", "Camelcase", "camel Case", "camelCase"],
+        title: "Which of the following is and example of CamelCase?",
+        choices: ["camel case", "Camelcase", "camel Case", "camelCase"],
         answer: "camelCase"
     },
     {
-        title: "The condition in an if / else statement is enclosed within ____.",
-        choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-        answer: "parentheses"
+        title: "The web API localStorage object stores keys and values in what variable type:",
+        choices: ["numbers", "arrays", "objects", "strings"],
+        answer: "strings",
     },
     {
         title: "Arrays in JavaScript can be used to store ____.",
@@ -35,6 +34,12 @@ var questions = [
     },
     {
         title:
+            "The acronymic for the object representation of a webpage, DOM, stands for:",
+        choices: ["doorway opening mechanism", "digital orientation method", "document object model", "device operation manual"],
+        answer: "document object model",
+    },
+    {
+        title:
             "Which of the following keywords is used to define a variable in JavaScript?",
         choices: ["var", "let", "both var and let", "none of the above"],
         answer: "both var and let"
@@ -44,8 +49,8 @@ var questions = [
 var i = 0;
 let score = 0;
 let timeLeft = 90;
-let globalIndex = 0;
-let highScoreIndex = 0;
+// let globalIndex = 0;
+// let highScoreIndex = 0;
 const entriesFromLocalStorage = JSON.parse(localStorage.getItem('initials' + 'score'));
 
 
@@ -116,20 +121,17 @@ document.querySelector('#start').onclick = function () {
 }
 // Logging your high score to show up in the high score page
 
-//const localStorageData =[]
-
 function showScore() {
     document.querySelector('#QA').style.display = "none";
     document.querySelector('#form').style.display = 'block';
     document.querySelector('#finalbtn').onclick = function (e) {
         e.preventDefault()
         var initials = document.querySelector('#initials').value;
-        localStorageData = JSON.parse(localStorage.getItem("data")) || []
-        let newData = {score: score, initials: initials};
-        localStorageData.push(newData)
-        localStorage.setItem('data', JSON.stringify(localStorageData))
-        
+        // To make sure the other scores also show up from local storage
+        localStorageData = JSON.parse(localStorage.getItem("data")) || [];
+        // How I want the data to be arranged and putting it in local storage
+        let newData = { score: score, initials: initials };
+        localStorageData.push(newData);
+        localStorage.setItem('data', JSON.stringify(localStorageData));
     }
-
-    
 };
