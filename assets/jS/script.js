@@ -49,8 +49,6 @@ var questions = [
 var i = 0;
 let score = 0;
 let timeLeft = 90;
-// let globalIndex = 0;
-// let highScoreIndex = 0;
 const entriesFromLocalStorage = JSON.parse(localStorage.getItem('initials' + 'score'));
 
 
@@ -61,6 +59,7 @@ document.querySelector('#start').onclick = function () {
     document.addEventListener('#start', () => {
         timeInterval.textContent = timer;
     })
+
     // Start and Display Timer
     var timerEl = document.getElementById("timer");
     timerEl.textContent = timeLeft;
@@ -80,8 +79,8 @@ document.querySelector('#start').onclick = function () {
         }, 1000);
     }
     timer();
-    // Display questions on the screen after #starting Quiz 
 
+    // Display questions on the screen after #starting Quiz 
     function showQuestions() {
         if (i < questions.length) {
             document.querySelector('#question-title').innerHTML =
@@ -96,6 +95,7 @@ document.querySelector('#start').onclick = function () {
         }
 
     }
+    // Selecting your answers
     document.querySelector('#question-button').onclick = function (e) {
         e.preventDefault();
 
@@ -119,8 +119,7 @@ document.querySelector('#start').onclick = function () {
         console.log(score);
     }
 }
-// Logging your high score to show up in the high score page
-
+// Logging your high score for the high score page
 function showScore() {
     document.querySelector('#QA').style.display = "none";
     document.querySelector('#form').style.display = 'block';
